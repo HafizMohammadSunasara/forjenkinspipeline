@@ -1,0 +1,12 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+def test_title():
+    o = Options()
+    o.add_argument("--headless=new")
+    o.add_argument("--no-sandbox")
+    o.add_argument("--disable-dev-shm-usage")
+    d = webdriver.Chrome(options=o)
+    d.get("https://example.com")
+    assert "Example" in d.title
+    d.quit()
